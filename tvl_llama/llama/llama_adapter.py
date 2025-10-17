@@ -315,7 +315,7 @@ def load(name, llama_dir, device="cuda" if torch.cuda.is_available() else "cpu",
 
     # load llama_adapter weights and model_cfg
     print(f'Loading LLaMA-Adapter from {model_path}')
-    adapter_ckpt = torch.load(model_path, map_location='cpu')
+    adapter_ckpt = torch.load(model_path, map_location='cpu', weights_only=False)
 
     model = LLaMA_adapter(
         llama_ckpt_dir, llama_tokenzier_path, phase=phase, args=args, load=True)
